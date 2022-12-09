@@ -10,13 +10,14 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 | Januar Evan Zuriel Banjarnahor | 5025201210 | 1 (Setting Proxy Client dan Server config)		      |
 | Alexander 			 | 5025201247 | A-D                 |
 
-## Topologi
+## A. Topologi
 ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/Modul5.png?raw=true)
 
-## VLSM Tree
+## B. Subnetting
+### VLSM Tree
 ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/Modul5_Tree.png?raw=true)
 
-## Tabel Subnetting
+### Tabel Subnetting
 | Subnet | Jumlah IP | Length | IP          | Subnet Mask     |
 | ------ | --------- | ------ | ----------- | --------------- |
 | A1     | 3         | /29    | 10.21.7.128 | 255.255.255.248 |
@@ -29,7 +30,7 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 | A8     | 3         | /29    | 10.21.7.136 | 255.255.255.248 |
 | Total  | 1231      | /21    |             |                 |
 
-## Tabel IP Node
+### Tabel IP Node
 | Subnet | Node            | IP          | Subnet Mask     |
 | ------ | --------------- | ----------- | --------------- |
 | A1     | Westalis (eth1) | 10.21.7.129 | 255.255.255.248 |
@@ -51,7 +52,7 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 | A8     | Garden          | 10.21.7.138 | 255.255.255.248 |
 | A8     | SSS             | 10.21.7.139 | 255.255.255.248 |
 
-## Konfigurasi Node
+### Konfigurasi Node
 
 - Eden
 ```
@@ -215,3 +216,18 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
 ```
+
+### C. Routing
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/routing.png?raw=true)
+
+### D. DHCP Server & Relay
+
+- Konfigurasi DHCP Server pada WISE
+
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-server-1.png?raw=true)
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-server-2.png?raw=true)
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-server-3.png?raw=true)
+
+- Konfigurasi DHCP Relay pada Westalis & Ostania
+
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-relay-1.png?raw=true)
