@@ -50,3 +50,168 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 | A8     | Ostania (eth3)  | 10.21.7.137 | 255.255.255.248 |
 | A8     | Garden          | 10.21.7.138 | 255.255.255.248 |
 | A8     | SSS             | 10.21.7.139 | 255.255.255.248 |
+
+## Konfigurasi Node
+
+- Eden
+```
+auto eth0
+iface eth0 inet static
+address 10.21.7.130
+netmask 255.255.255.248
+gateway 10.21.7.129
+```
+
+- Wise
+```
+auto eth0
+iface eth0 inet static
+address 10.21.7.131
+netmask 255.255.255.248
+gateway 10.21.7.129
+```
+
+- Garden
+```
+auto eth0
+iface eth0 inet static
+address 10.21.7.138
+netmask 255.255.255.248
+gateway 10.21.7.137
+```
+
+- SSS
+```
+auto eth0
+iface eth0 inet static
+address 10.21.7.139
+netmask 255.255.255.248
+gateway 10.21.7.137
+```
+
+- Strix
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+address 10.21.7.146
+netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+address 10.21.7.149
+netmask 255.255.255.252
+```
+
+- Westalis
+```
+auto eth0
+iface eth0 inet static
+address 10.21.7.145
+netmask 255.255.255.252
+gateway 10.21.7.146
+
+auto eth1
+iface eth1 inet static
+address 10.21.7.129
+netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+address 10.21.7.1
+netmask 255.255.255.128
+
+auto eth3
+iface eth3 inet static
+address 10.21.0.1
+netmask 255.255.252.0
+```
+
+- Ostania
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.21.7.150
+netmask 255.255.255.252
+gateway 10.21.7.149
+
+auto eth1
+iface eth1 inet static
+address 10.21.4.1
+netmask 255.255.254.0
+
+auto eth2
+iface eth2 inet static
+address 10.21.6.1
+netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+address 10.21.7.137
+netmask 255.255.255.248
+```
+
+- Desmond
+```
+#auto eth0
+#iface eth0 inet static
+#address 10.21.0.2
+#netmask 255.255.252.0
+#gateway 10.21.0.1
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+```
+
+- Briar
+```
+#auto eth0
+#iface eth0 inet static
+#address 10.21.6.2
+#netmask 255.255.255.0
+#gateway 10.21.6.1
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+```
+
+- Blackbell
+```
+#auto eth0
+#iface eth0 inet static
+#address 10.21.4.2
+#netmask 255.255.254.0
+#gateway 10.21.4.1
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+```
+
+- Forger
+```
+#auto eth0
+#face eth0 inet static
+#address 10.21.7.2
+#netmask 255.255.255.128
+#gateway 10.21.7.1
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+```
