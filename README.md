@@ -260,5 +260,6 @@ iface eth0 inet dhcp
   ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/87681a01e7734895ec03f89e2ecacb5fabbc1572/SS%20Modul%205/firewall2-1.png)
   
   Sesudah dilakukan Firewall Blocking
+  
   ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/62765d82123b9ad50ae069ea8c18f7963d4015a9/SS%20Modul%205/firewall2.png)
   
