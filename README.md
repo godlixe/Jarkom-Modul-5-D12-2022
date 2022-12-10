@@ -7,7 +7,7 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 | Nama                           | NRP        | Nomor Yang dikerjakan |
 | ------------------------------ | ---------- | --------------------- |
 | Hafizh Mufid Darussalam        | 5025201093 | 5-7               |
-| Januar Evan Zuriel Banjarnahor | 5025201210 | 1 (Setting Proxy Client dan Server config)		      |
+| Januar Evan Zuriel Banjarnahor | 5025201210 | 1-6		      |
 | Alexander 			 | 5025201247 | A-D                 |
 
 ## A. Topologi
@@ -231,3 +231,9 @@ iface eth0 inet dhcp
 - Konfigurasi DHCP Relay pada Westalis & Ostania
 
 ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-relay-1.png?raw=true)
+
+## E. Firewall
+1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Strix menggunakan iptables, tetapi Loid tidak ingin menggunakan MASQUERADE.
+
+`my_eth0_ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }')`
+`iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source "$my_eth0_ip" -s 10.21.0.0/21`
