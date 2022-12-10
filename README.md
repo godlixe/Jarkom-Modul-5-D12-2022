@@ -242,8 +242,8 @@ iface eth0 inet dhcp
   ```
   `my_eth0_ip` digunakan untuk mengambil ip dari interface eth0 dari `Strix` karena IP eth0 didapatkan dengan DHCP. Kemudian lakukan POSTROUTING Firewall tabel nat untuk mengubah source address dari luar menjadi address Strix
   
-  Pengetesan :
-  Silahkan coba `apt-get update` pada setiap routing
+  Testing :
+  Silahkan coba `apt-get update` pada setiap Router, Client, dan Server pada topologi Anda.
 
 2. Kalian diminta untuk melakukan drop semua TCP dan UDP dari luar Topologi kalian pada server yang merupakan DHCP Server demi menjaga keamanan.
 
@@ -252,3 +252,13 @@ iface eth0 inet dhcp
   iptables -A FORWARD -d 10.21.7.131 -p tcp -i eth0 -j DROP
   iptables -A FORWARD -d 10.21.7.131 -p udp -i eth0 -j DROP
   ```
+  
+  Testing :
+  Silahkan lakukan `apt-get update` pada Server WISE untuk pengecekan firewall
+  
+  Sesudah dilakukan Firewall blocking
+  ![](SS Modul 5/firewall2.png)
+  
+  Sebelum dilakukan Firewall Blocking
+  ![](SS Modul 5/firewall2-1.png)
+  
