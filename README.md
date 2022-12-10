@@ -234,8 +234,21 @@ iface eth0 inet dhcp
 
 ## E. Firewall
 1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Strix menggunakan iptables, tetapi Loid tidak ingin menggunakan MASQUERADE.
+  
+  Lakukan pada router Strix :
+  ```
+  my_eth0_ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }')
+  iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source "$my_eth0_ip" -s 10.21.0.0/21
+  ```
+  `my_eth0_ip` digunakan untuk mengambil ip dari interface eth0 dari `Strix` karena IP eth0 didapatkan dengan DHCP. Kemudian lakukan POSTROUTING Firewall tabel nat untuk mengubah source address dari luar menjadi address Strix
+  
+  Pengetesan :
+  Silahkan coba `apt-get update` pada setiap routing
 
-```
-my_eth0_ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }')
-iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source "$my_eth0_ip" -s 10.21.0.0/21
-```
+2. Kalian diminta untuk melakukan drop semua TCP dan UDP dari luar Topologi kalian pada server yang merupakan DHCP Server demi menjaga keamanan.
+
+  Lakukan script ini pada Strix :
+  ```
+  iptables -A FORWARD -d 10.21.7.131 -p tcp -i eth0 -j DROP
+  iptables -A FORWARD -d 10.21.7.131 -p udp -i eth0 -j DROP
+  ```
