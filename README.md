@@ -263,3 +263,46 @@ iface eth0 inet dhcp
   
   ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/62765d82123b9ad50ae069ea8c18f7963d4015a9/SS%20Modul%205/firewall2.png)
   
+3. Loid meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 2 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
+
+  Lakukan script ini pada WISE dan Eden :
+  ```
+  iptables -A INPUT -p icmp -m connlimit --connlimit-above 2 --connlimit-mask 0 -j REJECT
+  ```
+  
+  Testing :
+  Lakukan ping ke IP WISE atau Eden pada client Briar, Desmond, dan Forger. Pada saat ping yang ke-3, hasil dari ping akan seperti berikut
+  
+  ![]()
+  
+4. Akses menuju Web Server hanya diperbolehkan disaat jam kerja yaitu Senin sampai Jumat pada pukul 07.00 - 16.00.
+  
+  Lakukan Script ini pada SSS dan Garden :
+  ```
+  iptables -A INPUT -m time --weekdays Mon,Tue,Wed,Thu,Fri --timestart 07:00 --timestop 16:00 -j ACCEPT
+  iptabels -A INPUT -j REJECT
+  ```
+  
+  Testing :
+  Install Lynx pada client dan coba `lynx (ip dari sss) atau lynx (ip dari garden)`
+  
+  Pada saat jam kerja
+  ![]()
+  
+  Di luar jam Kerja
+  
+  ![]()
+  
+5. Karena kita memiliki 2 Web Server, Loid ingin Ostania diatur sehingga setiap request dari client yang mengakses Garden dengan port 80 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan dan request dari client yang mengakses SSS dengan port 443 akan didistribusikan secara bergantian pada Garden dan SSS secara berurutan.
+
+  Lakukan scipt ini pada Ostania :
+  ```
+  iptables -A PREROUTING -t nat -p tcp --dport 80 -d 10.21.7.138 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 10.21.7.139:80
+  iptables -A PREROUTING -t nat -p tcp --dport 443 -d 10.21.7.139 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 10.21.7.138:443
+  ```
+  
+  Testing :
+  1. Nyalakan netcat pada SSS dan Garden terlebih dahulu `nc -l -p 80` atau `nc -l -p 443`
+  2. Pakai client dan lakukan `nc (ip garden) 80` atau `nc (ip SSS) 443`
+  3. Ketik apapun untuk pengetesan keakuratan
+  
