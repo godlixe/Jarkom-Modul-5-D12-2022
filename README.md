@@ -235,6 +235,7 @@ iface eth0 inet dhcp
 ## E. Firewall
 1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Strix menggunakan iptables, tetapi Loid tidak ingin menggunakan MASQUERADE.
 
-  `my_eth0_ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }')`
-  
-  `iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source "$my_eth0_ip" -s 10.21.0.0/21`
+```
+my_eth0_ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }')
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source "$my_eth0_ip" -s 10.21.0.0/21
+```
