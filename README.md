@@ -257,7 +257,7 @@ iface eth0 inet dhcp
   Silahkan lakukan `apt-get update` pada Server WISE untuk pengecekan firewall
   
   Sesudah dilakukan Firewall blocking
-  ![](./SS Modul 5/firewall2.png)
+  ![![](./SS Modul 5/firewall2.png)](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/87681a01e7734895ec03f89e2ecacb5fabbc1572/SS%20Modul%205/firewall2-1.png)
   
   Sebelum dilakukan Firewall Blocking
   ![](./SS Modul 5/firewall2-1.png)
