@@ -6,7 +6,7 @@ Praktikum Jaringan Komputer Modul 5 (Firewall) 2022.
 
 | Nama                           | NRP        | Nomor Yang dikerjakan |
 | ------------------------------ | ---------- | --------------------- |
-| Hafizh Mufid Darussalam        | 5025201093 | 5-7               |
+| Hafizh Mufid Darussalam        | 5025201093 | 5-6               |
 | Januar Evan Zuriel Banjarnahor | 5025201210 | 1-6		      |
 | Alexander 			 | 5025201247 | A-D                 |
 
@@ -218,7 +218,14 @@ iface eth0 inet dhcp
 ```
 
 ### C. Routing
+
+- Konfigurasi Routing pada Strix
+
 ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/routing.png?raw=true)
+
+- Tes ping dari Desmond ke Blackbell
+
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/routing2.png)
 
 ### D. DHCP Server & Relay
 
@@ -232,6 +239,10 @@ iface eth0 inet dhcp
 
 ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-relay-1.png?raw=true)
 
+- Lease pada Blackbell
+
+![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/dhcp-relay-2.png)
+
 ## E. Firewall
 1. Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Strix menggunakan iptables, tetapi Loid tidak ingin menggunakan MASQUERADE.
   
@@ -244,6 +255,12 @@ iface eth0 inet dhcp
   
   Testing :
   Silahkan coba `apt-get update` pada setiap Router, Client, dan Server pada topologi Anda.
+  
+  Ping Google.com :
+  
+  ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/firewall1.png)
+  
+  ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/main/SS%20Modul%205/firewall1-2.png)
 
 2. Kalian diminta untuk melakukan drop semua TCP dan UDP dari luar Topologi kalian pada server yang merupakan DHCP Server demi menjaga keamanan.
 
