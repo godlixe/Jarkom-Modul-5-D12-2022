@@ -273,7 +273,7 @@ iface eth0 inet dhcp
   Testing :
   Lakukan ping ke IP WISE atau Eden pada client Briar, Desmond, dan Forger. Pada saat ping yang ke-3, hasil dari ping akan seperti berikut
   
-  ![]()
+  [![]()](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/abda653ba5891f8259982b18c9a9b3de8a38a810/SS%20Modul%205/firewall3.png)
   
 4. Akses menuju Web Server hanya diperbolehkan disaat jam kerja yaitu Senin sampai Jumat pada pukul 07.00 - 16.00.
   
@@ -287,11 +287,11 @@ iface eth0 inet dhcp
   Install Lynx pada client dan coba `lynx (ip dari sss) atau lynx (ip dari garden)`
   
   Pada saat jam kerja
-  ![]()
+  [![]()](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/abda653ba5891f8259982b18c9a9b3de8a38a810/SS%20Modul%205/firewall4-1.png)
   
   Di luar jam Kerja
   
-  ![]()
+  [![]()](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/abda653ba5891f8259982b18c9a9b3de8a38a810/SS%20Modul%205/firewall4.png)
   
 5. Karena kita memiliki 2 Web Server, Loid ingin Ostania diatur sehingga setiap request dari client yang mengakses Garden dengan port 80 akan didistribusikan secara bergantian pada SSS dan Garden secara berurutan dan request dari client yang mengakses SSS dengan port 443 akan didistribusikan secara bergantian pada Garden dan SSS secara berurutan.
 
@@ -305,4 +305,6 @@ iface eth0 inet dhcp
   1. Nyalakan netcat pada SSS dan Garden terlebih dahulu `nc -l -p 80` atau `nc -l -p 443`
   2. Pakai client dan lakukan `nc (ip garden) 80` atau `nc (ip SSS) 443`
   3. Ketik apapun untuk pengetesan keakuratan
+
+  ![](https://github.com/godlixe/Jarkom-Modul-5-D12-2022/blob/abda653ba5891f8259982b18c9a9b3de8a38a810/SS%20Modul%205/firewall5.png)
   
